@@ -8,3 +8,8 @@ const btnRoll = document.querySelector('.btn--roll');
 const btnNew = document.querySelector(".btn--new");
 const btnHold = document.querySelector(".btn--hold");
 
+//Conditions at the beginning
+currentScoreP1.textContent = 0;
+currentScoreP2.textContent = 0;
+diceImg.classList.add('hidden'); //Adds a hidden class on dice Img
+
