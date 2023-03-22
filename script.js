@@ -13,9 +13,13 @@ currentScoreP1.textContent = 0;
 currentScoreP2.textContent = 0;
 diceImg.classList.add('hidden'); //Adds a hidden class on dice Img
 
-//Dice roll
-btnHold.addEventListener('click', function () {
-    //Random number
-    let dice = Math.trunc(Math.random() * 6 + 1);
+// //Dice roll
+// btnRoll.addEventListener('click', function () {
+//     //Random number
+//     let dice = Math.trunc(Math.random() * 6 + 1);
     
-});
+//     //Display dice
+//     diceImg.classList.remove('hidden');
+//     diceImg.src = `dice_${dice}.png`;
+
+// });
