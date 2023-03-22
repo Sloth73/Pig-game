@@ -1,8 +1,10 @@
 'use strict';
 
 //DOM manipulation
-const ScoreP1 = document.querySelector('#score--0');
-const ScoreP2 = document.querySelector('#score--1');
+const scoreP1 = document.querySelector('#score--0');
+const scoreP2 = document.querySelector('#score--1');
+const currentScoreElement1 = document.querySelector('#current--0');
+const currentScoreElement2 = document.querySelector("#current--1");
 const diceImg = document.querySelector('.dice');
 const btnRoll = document.querySelector('.btn--roll');
 const btnNew = document.querySelector(".btn--new");
@@ -17,13 +19,18 @@ let currentScore = 0;
 
 //Dice roll
 btnRoll.addEventListener('click', function () {
-    //Random number
-    let dice = Math.trunc(Math.random() * 6 + 1);
-    console.log(dice)
+  //Random number
+  let dice = Math.trunc(Math.random() * 6 + 1);
+  console.log(dice);
 
-    //Display dice
-    diceImg.classList.remove('hidden');
-    diceImg.src = `images/dice_${dice}.png`;
-    
-  
+  //Display dice
+  diceImg.classList.remove("hidden");
+  diceImg.src = `images/dice_${dice}.png`;
+
+  //Check if 1
+  if (dice !== 1) {
+      currentScore += dice;
+    }
+  else {
+    }
 });
