@@ -31,7 +31,7 @@ btnRoll.addEventListener('click', function () {
   //Check if 1
   if (dice !== 1) {
       currentScore += dice;
-      document.querySelector('#current--${activePlyer}').textContent = currentScore
+      document.querySelector(`#current--${activePlayer}`).textContent = currentScore
     }
   else {
     }
