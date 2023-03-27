@@ -13,14 +13,24 @@ const btnNew = document.querySelector(".btn--new");
 const btnHold = document.querySelector(".btn--hold");
 
 //Conditions at the beginning
-scoreP0.textContent = 0;
-scoreP1.textContent = 0;
-diceImg.classList.add('hidden'); //Adds a hidden class on dice Img
-
 let stillPlaying = true;
-let currentScore = 0;
 let activePlayer = 0;
+let currentScore = 0;
 const score = [0, 0];
+
+function init() {
+    scoreP0.textContent = 0;
+    scoreP1.textContent = 0;
+    player1.classList.add("player--active");
+    currentScore = 0;
+    activePlayer = 0;
+    currentScoreElement2.textContent = currentScore;
+    currentScoreElement.textContent = currentScore;
+    stillPlaying = true;
+    diceImg.classList.add('hidden'); //Adds a hidden class on dice Img
+}
+init();
+
 function switchPlayer() {
     document.querySelector(`#current--${activePlayer}`).textContent = 0;
     currentScore = 0;
@@ -78,15 +88,7 @@ btnHold.addEventListener('click', function () {
 
 btnNew.addEventListener('click', function () {
     document.querySelector(`.player--${activePlayer}`).classList.remove("player--winner");
-    scoreP0.textContent = 0;
-    scoreP1.textContent = 0;
-    player1.classList.add("player--active");
-    currentScore = 0;
-    activePlayer = 0;
+    init();
     score.splice(0, 2);
     score.push(0, 0);
-    currentScoreElement2.textContent = currentScore;
-    currentScoreElement.textContent = currentScore;
-    stillPlaying = true;
-
 });
