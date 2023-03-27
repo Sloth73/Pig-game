@@ -17,6 +17,7 @@ scoreP0.textContent = 0;
 scoreP1.textContent = 0;
 diceImg.classList.add('hidden'); //Adds a hidden class on dice Img
 
+let stillPlaying = true;
 let currentScore = 0;
 let activePlayer = 0;
 const score = [0, 0];
@@ -30,38 +31,46 @@ function switchPlayer() {
 
 //Dice roll
 btnRoll.addEventListener('click', function () {
-  //Random number
-  let dice = Math.trunc(Math.random() * 6 + 1);
-  console.log(dice);
+    if (stillPlaying) {
+        //Random number
+        let dice = Math.trunc(Math.random() * 6 + 1);
+        console.log(dice);
 
-  //Display dice
-  diceImg.classList.remove("hidden");
-  diceImg.src = `images/dice_${dice}.png`;
+        //Display dice
+        diceImg.classList.remove("hidden");
+        diceImg.src = `images/dice_${dice}.png`;
 
-  //Check if 1
-    if (dice !== 1) {
-        currentScore += dice;
-        document.querySelector(`#current--${activePlayer}`).textContent = currentScore
-    }
-    else {
-        switchPlayer();
+        //Check if 1
+        if (dice !== 1) {
+            currentScore += dice;
+            document.querySelector(`#current--${activePlayer}`).textContent = currentScore
+        }
+        else {
+            switchPlayer();
+        }
     }
 });
 
 //Hold button
 btnHold.addEventListener('click', function () {
-    //Add current score to total score
-    score[activePlayer] += currentScore;
-    document.querySelector(`#score--${activePlayer}`).textContent = score[activePlayer];
-    //Chceck if total score is >= 100
+    if (stillPlaying) {
+        //Add current score to total score
+        score[activePlayer] += currentScore;
+        document.querySelector(`#score--${activePlayer}`).textContent = score[activePlayer];
+        //Chceck if total score is >= 100
         //If yes - Playes wins
-    if (score[activePlayer] >= 100) {
-        document.querySelector(`.player--${activePlayer}`).classList.add('player--winner');
-        document.querySelector(`.player--${activePlayer}`).classList.remove('player--active');
+        if (score[activePlayer] >= 10) {
+          document
+            .querySelector(`.player--${activePlayer}`)
+            .classList.add("player--winner");
+          document
+            .querySelector(`.player--${activePlayer}`)
+            .classList.remove("player--active");
+          stillPlaying = false;
+        }
         //If no - switch player
-    }
-    else {
-      switchPlayer()
-    }
-        
+        else {
+          switchPlayer();
+        }
+    }  
 });
