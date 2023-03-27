@@ -66,7 +66,8 @@ btnHold.addEventListener('click', function () {
           document
             .querySelector(`.player--${activePlayer}`)
             .classList.remove("player--active");
-          stillPlaying = false;
+            stillPlaying = false;
+            diceImg.classList.add("hidden");
         }
         //If no - switch player
         else {
