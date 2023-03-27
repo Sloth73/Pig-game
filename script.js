@@ -11,11 +11,12 @@ const btnNew = document.querySelector(".btn--new");
 const btnHold = document.querySelector(".btn--hold");
 
 //Conditions at the beginning
-currentScoreP1.textContent = 0;
-currentScoreP2.textContent = 0;
+scoreP1.textContent = 0;
+scoreP2.textContent = 0;
 diceImg.classList.add('hidden'); //Adds a hidden class on dice Img
 
 let currentScore = 0;
+let activePlayer = 0;
 
 //Dice roll
 btnRoll.addEventListener('click', function () {
@@ -30,6 +31,7 @@ btnRoll.addEventListener('click', function () {
   //Check if 1
   if (dice !== 1) {
       currentScore += dice;
+      document.querySelector('#current--${activePlyer}').textContent = currentScore
     }
   else {
     }
