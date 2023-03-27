@@ -55,9 +55,11 @@ btnHold.addEventListener('click', function () {
     document.querySelector(`#score--${activePlayer}`).textContent = score[activePlayer];
     //Chceck if total score is >= 100
         //If yes - Playes wins
-    if (score[activePlayer] >= 100) {
-    }
+    if (score[activePlayer] >= 20) {
+        document.querySelector(`.player--${activePlayer}`).classList.add('player--winner');
+        document.querySelector(`.player--${activePlayer}`).classList.remove('player--active');
         //If no - switch player
+    }
     else {
       switchPlayer()
     }
