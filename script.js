@@ -13,14 +13,14 @@ const btnNew = document.querySelector(".btn--new");
 const btnHold = document.querySelector(".btn--hold");
 
 //Conditions at the beginning
-let stillPlaying = true;
-let activePlayer = 0;
-let currentScore = 0;
-const score = [0, 0];
+let stillPlaying, activePlayer, currentScore, score;
 
 function init() {
+    player1.classList.remove("player--winner");
+    player2.classList.remove("player--winner");
     scoreP0.textContent = 0;
     scoreP1.textContent = 0;
+    score = [0, 0];
     player1.classList.add("player--active");
     currentScore = 0;
     activePlayer = 0;
@@ -86,9 +86,4 @@ btnHold.addEventListener('click', function () {
     }  
 });
 
-btnNew.addEventListener('click', function () {
-    document.querySelector(`.player--${activePlayer}`).classList.remove("player--winner");
-    init();
-    score.splice(0, 2);
-    score.push(0, 0);
-});
+btnNew.addEventListener('click', init);
