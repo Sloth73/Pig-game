@@ -19,7 +19,7 @@ diceImg.classList.add('hidden'); //Adds a hidden class on dice Img
 
 let currentScore = 0;
 let activePlayer = 0;
-
+const score = [0, 0];
 
 //Dice roll
 btnRoll.addEventListener('click', function () {
