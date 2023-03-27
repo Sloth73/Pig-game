@@ -48,6 +48,8 @@ btnRoll.addEventListener('click', function () {
 //Hold button
 btnHold.addEventListener('click', function () {
     //Add current score to total score
+    score[activePlayer] += currentScore;
+    scoreP1.textContent = score[activePlayer];
     //Chceck if total score is >= 100
         //If yes - Playes wins
         //If no - switch player
