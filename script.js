@@ -3,7 +3,8 @@
 //DOM manipulation
 const scoreP1 = document.querySelector('#score--0');
 const scoreP2 = document.querySelector('#score--1');
-let currentScoreElement = document.querySelector(`#current--${activePlayer}`);
+const currentScoreElement = document.querySelector('#current--0');
+const currentScoreElement2 = document.querySelector("#current--1");
 const diceImg = document.querySelector('.dice');
 const btnRoll = document.querySelector('.btn--roll');
 const btnNew = document.querySelector(".btn--new");
@@ -30,10 +31,10 @@ btnRoll.addEventListener('click', function () {
   //Check if 1
   if (dice !== 1) {
       currentScore += dice;
-      currentScoreElement.textContent = currentScore
+      document.querySelector(`#current--${activePlayer}`).textContent = currentScore
     }
   else {
-      currentScoreElement.textContent = 0;
+      document.querySelector(`#current--${activePlayer}`).textContent = 0;
       currentScore = 0;
       activePlayer = activePlayer === 0 ? 1 : 0;
 
