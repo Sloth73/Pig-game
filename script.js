@@ -1,5 +1,4 @@
 'use strict';
-
 //DOM manipulation
 const scoreP0 = document.querySelector('#score--0');
 const scoreP1 = document.querySelector('#score--1');
