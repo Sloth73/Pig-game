@@ -20,6 +20,13 @@ diceImg.classList.add('hidden'); //Adds a hidden class on dice Img
 let currentScore = 0;
 let activePlayer = 0;
 const score = [0, 0];
+function switchPlayer() {
+    document.querySelector(`#current--${activePlayer}`).textContent = 0;
+    currentScore = 0;
+    activePlayer = activePlayer === 0 ? 1 : 0;
+    player1.classList.toggle('player--active');
+    player2.classList.toggle('player--active');
+}
 
 //Dice roll
 btnRoll.addEventListener('click', function () {
@@ -32,16 +39,12 @@ btnRoll.addEventListener('click', function () {
   diceImg.src = `images/dice_${dice}.png`;
 
   //Check if 1
-  if (dice !== 1) {
-    currentScore += dice;
-    document.querySelector(`#current--${activePlayer}`).textContent = currentScore
+    if (dice !== 1) {
+        currentScore += dice;
+        document.querySelector(`#current--${activePlayer}`).textContent = currentScore
     }
-  else {
-    document.querySelector(`#current--${activePlayer}`).textContent = 0;
-    currentScore = 0;
-    activePlayer = activePlayer === 0 ? 1 : 0;
-    player1.classList.toggle('player--active');
-    player2.classList.toggle('player--active');
+    else {
+        switchPlayer();
     }
 });
 
@@ -53,14 +56,10 @@ btnHold.addEventListener('click', function () {
     //Chceck if total score is >= 100
         //If yes - Playes wins
     if (score[activePlayer] >= 100) {
-            
-    }
-    else {
-        document.querySelector(`#current--${activePlayer}`).textContent = 0;
-        currentScore = 0;
-        activePlayer = activePlayer === 0 ? 1 : 0;
-        player1.classList.toggle("player--active");
-        player2.classList.toggle("player--active");
     }
         //If no - switch player
+    else {
+      switchPlayer()
+    }
+        
 });
