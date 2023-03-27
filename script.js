@@ -75,3 +75,18 @@ btnHold.addEventListener('click', function () {
         }
     }  
 });
+
+btnNew.addEventListener('click', function () {
+    document.querySelector(`.player--${activePlayer}`).classList.remove("player--winner");
+    scoreP0.textContent = 0;
+    scoreP1.textContent = 0;
+    player1.classList.add("player--active");
+    currentScore = 0;
+    activePlayer = 0;
+    score.splice(0, 2);
+    score.push(0, 0);
+    currentScoreElement2.textContent = currentScore;
+    currentScoreElement.textContent = currentScore;
+    stillPlaying = true;
+
+});
